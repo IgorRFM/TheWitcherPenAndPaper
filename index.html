@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js – The HTML Presentation Framework</title>
+		<title>The Witcher - Pen and Paper</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -17,6 +17,8 @@
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<script src="js/funcs.js"/>
+
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
@@ -34,62 +36,104 @@
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
 
-		<script>
-
-		console.log("Test");
-
-		function mudar(){
-			var selectBox = document.getElementById('racas');
-			var pRaca = document.getElementById('raca');
-			var pNorte = document.getElementById('norte');
-			var pNilfgaard = document.getElementById('Nilfgaard');
-			var pSkellige = document.getElementById('Skellige');
-			var pDol = document.getElementById('dol');
-			var pMahakam = document.getElementById('Mahakam');
-
-			console.log(selectBox.selectedIndex);
-			if(selectBox.selectedIndex == "0"){
-				pRaca.innerHTML = "Humano";
-				pNorte.innerHTML = "Igual";
-				pSkellige.innerHTML = "Igual";
-				pNilfgaard.innerHTML = "Igual";
-				pDol.innerHTML = "Odiado (-2 em sedução, carisma, persuasão e liderança)";
-				pMahakam.innerHTML = "tolerado (-1 em sedução, carisma, persuasão e liderança)";
-			}
-			if(selectBox.selectedIndex == "1"){
-				pRaca.innerHTML = "Elfo";
-				pNorte.innerHTML = "Odiado (-2 em sedução, carisma, persuasão e liderança)";
-				pSkellige.innerHTML = "Igual";
-				pNilfgaard.innerHTML = "Igual";
-				pDol.innerHTML = "Igual";
-				pMahakam.innerHTML = "Igual";
-			}
-			if(selectBox.selectedIndex == "2"){
-				pRaca.innerHTML = "Anão";
-				pNorte.innerHTML = "tolerado (-1 em sedução, carisma, persuasão e liderança)";
-				pSkellige.innerHTML = "Igual";
-				pNilfgaard.innerHTML = "Igual";
-				pDol.innerHTML = "Igual";
-				pMahakam.innerHTML = "Igual";
-			}
-			if(selectBox.selectedIndex == "3"){
-				pRaca.innerHTML = "Bruxo";
-				pNorte.innerHTML = "Odiado/Temido (+1 em intimidação, -3 em carisma e -2 em sedução, persuasão e liderança)";
-				pSkellige.innerHTML = "tolerado (-1 em sedução, carisma, persuasão e liderança)";
-				pNilfgaard.innerHTML = "Odiado/Temido (+1 em intimidação -3 em carisma e -2 em sedução, persuasão e liderança)";
-				pDol.innerHTML = "tolerado (-1 em sedução, carisma, persuasão e liderança)";
-				pMahakam.innerHTML = "tolerado (-1 em sedução, carisma, persuasão e liderança)";
-			}
-			if(selectBox.selectedIndex == "4"){
-				pRaca.innerHTML = "Mago";
-				pNorte.innerHTML = "Odiado/Temido (+1 em intimidação, -3 em carisma e -2 em sedução, persuasão e liderança)";
-				pSkellige.innerHTML = "tolerado (-1 em sedução, carisma, persuasão e liderança)";
-				pNilfgaard.innerHTML = "tolerado (-1 em sedução, carisma, persuasão e liderança)";
-				pDol.innerHTML = "Igual";
-				pMahakam.innerHTML = "tolerado (-1 em sedução, carisma, persuasão e liderança)";
-			}
+		<style>
+		@keyframes float {
+		0% {
+			transform: translatey(0px);
 		}
-		</script>
+		50% {
+			transform: translatey(-20px);
+		}
+		100% {
+			transform: translatey(0px);
+		}
+	}
+
+	.avatar {
+		border-radius: 0px;
+		animation: float 6s ease-in-out infinite;
+		img { width: 100%; height: auto; }
+	}
+	.avatar2 {
+
+		animation: float 5s ease-in-out infinite;
+		img { width: 100%; height: auto; }
+	}
+	.avatar3 {
+		animation: float 6.5s ease-in-out infinite;
+		img { width: 100%; height: auto; }
+	}
+	.avatar4 {
+		animation: float 5.5s ease-in-out infinite;
+		img { width: 100%; height: auto; }
+	}
+
+	.sortear {
+  text-decoration: none;
+  border-radius: 50px;
+  justify-content: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 60px;
+  width: 210px;
+  opacity: 1;
+	margin-top: 2em;
+  background-color: #ffffff;
+  border: 1px solid rgba(22, 76, 167, 0.6);
+}
+.sortear span {
+  color: #164ca7;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+}
+.sortear:hover {
+  animation: rotate 0.7s ease-in-out both;
+}
+.sortear:hover span {
+  animation: storm 0.7s ease-in-out both;
+  animation-delay: 0.06s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+@keyframes storm {
+  0% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+  25% {
+    transform: translate3d(4px, 0, 0) translateZ(0);
+  }
+  50% {
+    transform: translate3d(-3px, 0, 0) translateZ(0);
+  }
+  75% {
+    transform: translate3d(2px, 0, 0) translateZ(0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+}
+		</style>
+
+
+
+
 
 
 	</head>
@@ -130,16 +174,16 @@
 			<section data-background-image="download3.jpg" data-transition="fade" data-background-opacity="0.3">
 						<h2>Criação de personagem</h2>
 						<p>Vamos criar tudo em seis etapas:</p>
-						<table style="width:100%">
+						<table style="width:100%;" border="2">
 							<tr>
-								<td><small>Escolha sua Raça</small></td>
-								<td><small>Crie um Background</small></td>
-								<td><small>Escolha uma profissão</small></td>
+								<td>Escolha sua Raça</td>
+								<td>Crie um Background</td>
+								<td>Escolha uma profissão</td>
 							</tr>
 							<tr>
-								<td><small>Escolha suas estatisticas</small></td>
-								<td><small>Escolha suas Habilidades</small></td>
-								<td><small>Defina seu dinheiro e roupas</small></td>
+								<td>Escolha suas estatisticas</td>
+								<td>Escolha suas Habilidades</td>
+								<td>Defina seu dinheiro e roupas</td>
 							</tr>
 						</table>
 
@@ -151,134 +195,124 @@
 					<p>julgamento social das raças</p>
 					<table style="100%">
 						<tr>
-							<td>
-								<small>território</small>
-							</td>
-							<td>
-								<small>humanos</small>
-							</td>
-							<td>
-								<small>elfos</small>
-							</td>
-							<td>
-								<small>anões</small>
-							</td>
-							<td>
-								<small>bruxos</small>
-							</td>
-							<td>
-								<small>magos</small>
-							</td>
+								<th>território</th>
+
+								<th>humanos</th>
+								<th>elfos</th>
+
+								<th>anões</th>
+								<th>bruxos</th>
+								<th>magos</th>
 						</tr>
 
 						<tr>
 							<td>
-								<small>Norte</small>
+								Norte
 							</td>
 							<td>
-								<small>igual</small>
+								igual
 							</td>
 							<td>
-								<small>odiado</small>
+								odiado
 
 							</td>
 							<td>
-								<small>tolerado</small>
+								tolerado
 
 							</td>
 							<td>
-								<small>temido/odiado</small>
+							temido/odiado
 
 							</td>
 							<td>
-								<small>temido/odiado</small>
+								temido/odiado
 
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<small>Nilfgaard</small>
+								Nilfgaard
 
 							</td>
 							<td>
-								<small>igual</small>
+								igual
 
 							</td>
 							<td>
-								<small>igual</small>
+								igual
 
 							</td>
 							<td>
-								<small>igual</small>
+								igual
 							</td>
 							<td>
-								<small>temido/odiado</small>
+								temido/odiado
 							</td>
 							<td>
-								<small>tolerado</small>
+								tolerado
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<small>Skellige</small>
+								Skellige
 
 							</td>
 							<td>
-								<small>igual</small>
+								igual
 							</td>
 							<td>
-								<small>igual</small>
+								igual
 							</td>
 							<td>
-								<small>igual</small>
+								igual
 							</td>
 							<td>
-								<small>tolerado</small>
+								tolerado
 							</td>
 							<td>
-								<small>tolerado</small>
+								tolerado
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<small>Dol Blathanna</small>
+								Dol Blathanna
 
 							</td>
 							<td>
-								<small>odiado</small>
+								odiado
 							</td>
 							<td>
-								<small>igual</small>
+								igual
 							</td>
 							<td>
-								<small>igual</small>
+								igual
 							</td>
 							<td>
-								<small>tolerado</small>
+								tolerado
 							</td>
 							<td>
-								<small>igual</small>
+								igual
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<small>Mahakam</small>
+								Mahakam
 
 							</td>
 							<td>
-								<small>tolerado</small>
+								tolerado
 							</td>
 							<td>
-								<small>igual</small>
+								igual
 							</td>
 							<td>
-								<small>igual</small>
+								igual
 							</td>
 							<td>
-								<small>tolerado</small>
+								tolerado
 							</td>
 							<td>
-								<small>tolerado</small>
+								tolerado
 							</td>
 						</tr>
 					</table>
@@ -287,7 +321,7 @@
 				<section data-background-image="download5.jpg" data-transition="fade" data-background-opacity="0.3">
 					<h2>Escolha sua raça</h2>
 
-					<p>
+					<!--<p>
 						<select id="racas" onchange="mudar()" style="-webkit-appearance: none; -moz-appearance: none; appearance: none; height:30px; border:1px solid #ddd; background-color: grey;}">
 						  <option value="humano">Humano</option>
 						  <option value="elfo">Elfo</option>
@@ -295,7 +329,12 @@
 						  <option value="bruxo">Bruxo</option>
 							<option value="mago">Mago</option>
 						</select>
-					</p>
+					</p>-->
+					<button onclick="mudar()" class="avatar" style="background: url(humano.png);   background-repeat: no-repeat; width: 100px; height: 100px; border: none;"></button>
+					<button onclick="mudar2()" class="avatar2" style="background: url(elfo.png);   background-repeat: no-repeat; width: 100px; height: 100px; border: none;"></button>
+					<button onclick="mudar3()" class="avatar3" style="background: url(anão.png);   background-repeat: no-repeat; width: 100px; height: 100px; border: none;"></button>
+					<button onclick="mudar4()" class="avatar4" style="background: url(bruxo.png);   background-repeat: no-repeat; width: 100px; height: 100px; border: none;"></button>
+
 					<table style="100%">
 						<tr>
 							<td>
@@ -359,11 +398,37 @@
 
 				</section>
 
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
+				<section data-background-image="mapa.png" data-transition="fade" data-background-opacity="0.3">
+					<h2>Definir Background</h2>
+					<p> Escolha um dos três lugares para começar (ou sorteie)</p>
+					<table>
+						<tr>
+							<td>Dado </td>
+							<th> Região</th>
+							<td></td>
+						</tr>
+
+						<tr>
+						<td>Ímpar</td>
+						<td>Reinos do Norte</td>
+						<td><input type="radio" name="reino" value="norte"><br></td>
+						</tr>
+						<tr>
+							<td>Par</td>
+							<td>Reinos de Nilfgaard</td>
+							<td><input type="radio" name="reino" value="Nilfgaard"><br></td>
+
+						</tr>
+						<tr>
+							<td>Não-Humano</td>
+							<td>ElderLands</td>
+							<td><input type="radio" name="reino" value="ElderLands"><br></td>
+
+						</tr>
+					</table>
+					<p id=btn-desligado>Apenas Humanos devem rolar o dado/escolher nesta etapa. Não-humanos têm uma tabela própria, então selecione "ElderLands" e continue, por favor.</p>
+
+
 				</section>
 
 				<section data-markdown>
