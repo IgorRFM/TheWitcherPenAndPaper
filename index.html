@@ -426,6 +426,7 @@
 
 						</tr>
 					</table>
+					<button id="btnSortear" class="sortear" onclick="Sortear()">Sortear</button>
 					<p id="btn-desligado">Apenas Humanos devem rolar o dado/escolher nesta etapa. Não-humanos têm uma tabela própria, então selecione "ElderLands" e continue, por favor.</p>
 
 
@@ -439,6 +440,11 @@
 		<script src="js/reveal.js"></script>
 
 		<script>
+				function Sortear(){
+					var rand = Math.floor(Math.random() * (20 - 1) + 1);
+					document.querySelector('#btnSortear').innerHTML = rand;
+
+				};
 
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
